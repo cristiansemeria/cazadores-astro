@@ -1,0 +1,22 @@
+---
+import SectionFull from "./SectionFull.astro";
+
+interface Props {
+    title?: string;
+    bgImage?: string;
+}
+
+const {
+    title = "Título por defecto",
+    bgImage = "",
+} = Astro.props as Props;
+---
+<SectionFull 
+	extraClasses='h-[300px] lg:h-[500px] flex justify-center items-center text-white text-5xl font-bold relative overflow-hidden mb-10'
+	>
+	<div class="absolute top-0 left-0 w-full h-full">
+		<div class="relative bg-black/30 h-full z-1"></div>
+		<img class="absolute top-0 w-full h-full object-cover" src={bgImage} alt="">
+	</div>
+		<p class="z-1">{title}</p>
+</SectionFull>

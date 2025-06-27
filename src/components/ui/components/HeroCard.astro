@@ -1,0 +1,34 @@
+---
+interface Props {
+bgImage?: string;
+title?: string;
+stats?: string[];
+extraClasses?: string;
+}
+
+const {
+  bgImage = "https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg",
+  title = "Las empresas <br /> apuestan por la innovación",
+  stats = ["80% de las empresas", "No tienen idea de como empezar"],
+  extraClasses = ""
+} = Astro.props as Props;
+---
+
+
+<div class={`bg-gray-200 p-4 flex flex-col items-start justify-between rounded-xl font-[700] h-[500px] bg-pink-200 text-2xl relative overflow-hidden text-white ${extraClasses}`}
+>
+  <div class="absolute top-0 left-0 w-full h-full">
+    <div class="relative bg-black/30 h-full z-1"></div>
+    <img
+      class="absolute top-0 w-full h-full object-cover"
+      src={bgImage}
+      alt=""
+    />
+  </div>
+  <span class="text-start z-1" set:html={title}></span>
+  <div class="flex flex-col items-start z-1 text-start">
+    {stats.map((stat) => (
+      <span>{stat}</span>
+    ))}
+  </div>
+</div>

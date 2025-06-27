@@ -1,0 +1,57 @@
+---
+import ButtonDefault from './ButtonDefault.astro';
+
+interface Props {
+    introText: string;
+    mainTitle: string;
+    description: string;
+    ctaText: string;
+    ctaHref?: string;
+    bgImage: string;
+    overlayColor?: string;
+    secondHeading?: string;
+    preContent?: string;
+    contentHTML?: string;
+}
+
+const {
+  introText,
+  mainTitle,
+  description,
+  ctaText,
+  ctaHref = '#',
+  bgImage,
+  overlayColor = 'bg-black/40',
+  secondHeading = '',
+  preContent = '',
+  contentHTML = ``
+} = Astro.props as Props;
+---
+
+
+<div class="grid grid-cols-1 lg:grid-cols-3 mt-10 mx-5 lg:mx-0">
+  <div class="bg-gray-300 p-10 font-[700] rounded-t-lg lg:rounded-none h-[500px] lg:h-[700px] flex flex-col items-start justify-center gap-1 sm:gap-4">
+    <span class="text-md lg:text-lg text-start" set:html={introText}></span>
+    <span class="text-4xl 2xl:text-6xl text-start" set:html={mainTitle}></span>
+    <p class="text-start" set:html={description}></p>
+    <ButtonDefault
+      href={ctaHref}
+      text={ctaText}
+    />
+  </div>
+  <div class="bg-gray-200 p-10 sm:col-span-2 rounded-b-lg sm:rounded-none flex flex-col items-start justify-between font-[700] h-[500px] sm:h-[700px] bg-pink-200 text-2xl relative overflow-hidden text-white">
+    <div class="absolute top-0 left-0 w-full h-full">
+      <div class={`relative ${overlayColor} h-full z-1`}></div>
+      <img
+        class="absolute top-0 w-full h-full object-cover"
+        src={bgImage}
+        alt=""
+      />
+    </div>
+    <span class="text-start z-1">{secondHeading}</span>
+    <div class="flex flex-col items-start z-1">
+      {preContent}
+      <span class="text-start text-sm lg:text-lg" set:html={contentHTML}></span>
+    </div>
+  </div>
+</div>

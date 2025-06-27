@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+import cazadoresLogo from "../assets/logo-dark.png";
+
+interface Props {
+    isSlider?: boolean;
+    extraClasses?: string;
+}
+
+const { isSlider = false, extraClasses = "" } = Astro.props as Props;
+
+const navBarClass = isSlider ? "absolute top-0 left-0" : "";
+const containerHeaderClass = isSlider ? "container mx-auto" : "bg-black";
+const navbarBaseClasses =
+    "w-full flex flex-col gap-2 lg:gap-5 lg:gap-0 lg:flex-row justify-between items-center px-4 py-3 h-auto";
+---
+
+<div class={`${containerHeaderClass} w-full relative z-2`}>
+    <div
+        id="navbar"
+        class={`${navBarClass} ${navbarBaseClasses} ${extraClasses}`.trim()}
+    >
+        <a href="/">
+            <img
+            class="max-w-[200px]"
+            src={cazadoresLogo.src}
+            alt="Logo Cazadores"
+            />
+        </a>
+        <h1 class="text-green-500 font-bold text-2xl hidden">Cazadores</h1>
+        <div class="text-[20px] lg:text-[25px] space-x-1">
+            <span
+                id="btn-menu"
+                class="cursor-pointer text-white hover:text-yellow-300 flex flex-row items-center gap-2"
+            >
+                <Icon name="mdi:menu-down-outline" />
+                Menu
+            </span>
+        </div>
+    </div>
+</div>

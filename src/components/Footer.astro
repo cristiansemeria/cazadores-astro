@@ -1,0 +1,81 @@
+---
+import ButtonDefault from "./ui/components/ButtonDefault.astro";
+import cazadoresLogo from "../assets/logo-dark.png";
+import IconSocial from "./ui/components/IconSocial.astro";
+import QuickLinks from "./ui/components/QuickLinks.astro";
+---
+
+<footer
+    class="bg-gray-800 text-white relative overflow-hidden rounded-t-[35px]"
+>
+    <div class="absolute lg:-top-60 h-full lg:w-auto lg:h-auto">
+        <div class="absolute bg-black/60 w-full h-full"></div>
+        <img
+            class="w-full h-full object-cover"
+            src="https://proyectocazadores.com/wp-content/uploads/2025/03/imagen_compress-scaled.jpg"
+            alt=""
+        />
+    </div>
+    <div
+        class="container mx-auto text-center flex flex-col gap-5 relative z-2 h-auto py-10"
+    >
+        <div class="flex flex-col items-center lg:items-end mx-5 lg:m-0">
+            Descarga nuestro contenido gratuito
+            <ButtonDefault href="#" text="Descargar Recursos" />
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-5 mx-5 lg:m-0">
+            <div class="text-sm text-start col-span-2">
+                <div class="flex justify-start mb-4">
+                    <img class="h-10" src={cazadoresLogo.src} alt="" />
+                </div>
+                <span
+                    >El hacha sin filo no corta. Si no se le saca filo, hay que
+                    golpear con más fuerza. Si quieres prosperar, tienes que
+                    saber qué hacer y hacerlo bien.</span
+                >
+                <a
+                    href="https://www.bible.com/es/bible/176/ECC.10.10"
+                    target="_blank"
+                    class="text-yellow-300 underline">Eclesiastés 10:10</a
+                >
+                <div class="flex gap-3 mt-4">
+                    <IconSocial href="#" icon="mdi:whatsapp" />
+                    <IconSocial href="#" icon="mdi:facebook" />
+                    <IconSocial href="#" icon="mdi:instagram" />
+                    <IconSocial href="#" icon="mdi:youtube" />
+                </div>
+            </div>
+            <QuickLinks
+                title="Enlaces Rápidos"
+                align="end"
+                items={[
+                    { href: "/", label: "Inicio" },
+                    { href: "/mision", label: "Misión" },
+                    { href: "/vision", label: "Visión" },
+                ]}
+            />
+            <QuickLinks
+                title="Información"
+                align="end"
+                items={[
+                    { href: "/valores", label: "Valores" },
+                    { href: "/objetivos", label: "Objetivos" },
+                    { href: "/como-hacemos", label: "¿Cómo le hacemos?" },
+                ]}
+            />
+            <QuickLinks
+                title="Servicios"
+                align="end"
+                items={[
+                    { href: "/servicios/marketing", label: "Marketing" },
+                    { href: "/servicios/paginas-web", label: "Paginas Web" },
+                    { href: "/servicios/tiendas-online", label: "Tiendas Online" },
+                ]}
+            />
+        </div>
+        <div class="mt-8 text-center text-xs text-gray-400">
+            © 2025 Cazadores. Todos los derechos reservados. Inspirando y
+            transformando vidas en México.
+        </div>
+    </div>
+</footer>

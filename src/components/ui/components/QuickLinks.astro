@@ -1,0 +1,41 @@
+---
+interface LinkItem {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  title?: string;
+  items?: LinkItem[];
+  align?: 'start' | 'center' | 'end';
+}
+
+const {
+  title = 'Quick Links',
+  items = [
+    { href: '#', label: 'Inicio' },
+    { href: '#', label: 'Servicios' },
+    { href: '#', label: 'Contacto' }
+  ],
+  align = 'start'
+} = Astro.props as Props;
+
+const alignClass = {
+  start: 'text-start lg:text-start',
+  center: 'text-center lg:text-center',
+  end: 'text-start lg:text-end'
+}[align];
+---
+
+<div class={alignClass}>
+  <h3 class="text-lg font-bold mb-3">{title}</h3>
+  <ul class="space-y-2 text-sm">
+    {items.map(item => (
+      <li>
+        <a href={item.href} class="hover:underline">
+          {item.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>

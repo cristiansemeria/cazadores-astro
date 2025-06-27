@@ -1,0 +1,102 @@
+---
+
+---
+<script>
+    
+    import { gsap } from "gsap";
+    const menu = document.getElementById("menu");
+    const btnMenu = document.getElementById("btn-menu");
+    const btnClose = document.getElementById("btn-close");
+    
+    if (btnMenu) {
+        btnMenu.addEventListener("click", () => {
+            gsap.fromTo(
+                menu,
+                { x: "-100%", opacity: 0 }, // Inicio: fuera de pantalla a la izquierda
+                {
+                    x: "0%",
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: "power2.out",
+                    display: "flex",
+                }, // Fin: en pantalla con transición suave
+            );
+        });
+    }
+
+    if (btnClose) {
+        btnClose.addEventListener("click", () => {
+            gsap.to(menu, {
+                y: "100%", // Se mueve hacia abajo
+                opacity: 0,
+                duration: 0.3,
+                ease: "power2.in",
+                onComplete: () => {
+                    if (menu) {
+                        menu.style.display = "none"; // Se oculta después de la animación
+                        gsap.set(menu, { y: "0%" }); // Restablece la posición para la siguiente apertura
+                    }
+                },
+            });
+        });
+    }
+    
+</script>
+<div
+    id="menu"
+    class="top-0 left-0 hidden w-full h-screen overflow-hidden overflow-y-auto fixed bg-black z-3"
+>
+    <nav
+        class="max-w-2xs mx-auto sm:container text-[50px] sm:text-[200px] font-medium flex flex-col justify-end pt-[calc(100vh-50%)] sm:pt-[calc(100vh-18%)] h-fit"
+    >
+        <div
+            id="btn-close"
+            class="text-[20px] sm:text-[50px] hover:underline text-white absolute top-[35px] right-[35px] cursor-pointer"
+        >
+            Cerrar
+        </div>
+        <a class="text" href="/nosotros">Nosotros <span>Conocenos</span></a>
+        <a class="text" href="/servicios">Servicios <span>Soluciones</span></a>
+        <a class="text" href="/plataforma">Plataforma <span>Unete</span></a>
+        <a class="text" href="/contacto">Contacto <span>Cazadores</span></a>
+    </nav>
+</div>
+<style>
+    .menu {
+        background-color: #000;
+    }
+    nav a span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        background-color: #e3c221;
+        color: rgb(0, 0, 0);
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+        transform-origin: center;
+        transition: all cubic-bezier(0.1, 0.5, 0.5, 1) 0.4s;
+    }
+
+    nav a:hover > span {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    nav a {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        color: rgb(227, 194, 33);
+        width: 100%;
+        background: linear-gradient(to right, #e8cc47, #e3c221) no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-size: 0;
+        transition: background-size cubic-bezier(0.1, 0.5, 0.5, 1) 0.5s;
+        border-bottom: 1px solid #2f2b28;
+        font-weight: bold;
+    }
+</style>

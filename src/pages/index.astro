@@ -1,11 +1,100 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Slider from "../components/ui/Slider.astro";
+import Menu from "../components/ui/Menu.astro";
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import Loader from "../components/ui/Loader.astro";
+import SectionContainer from "../components/ui/layouts/SectionContainer.astro";
+import HeroCard from "../components/ui/components/HeroCard.astro";
+import ServiceCard from "../components/ui/components/ServiceCard.astro";
+import SectionFull from "../components/ui/layouts/SectionFull.astro";
+import TargetCard from "../components/ui/components/TargetCard.astro";
+//import ComponentVue from "../components/ui/components/ComponentVue.vue";
+import Gallery from "../components/ui/components/Gallery.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout>
-	<Welcome />
+	<Slider />
+
+	<Menu />
+
+	<SectionContainer
+		title="Mantenerse en constante evolución"
+		subtitle="Crecemos contigo, paso a paso y sin pausa"
+	>
+		<div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-10 mx-5 sm:mx-0">
+			<HeroCard
+				title="Las empresas <br /> apuestan por la innovación"
+				stats={[
+					"80% de las empresas",
+					"No tienen idea de como empezar",
+				]}
+				extraClasses="lg:col-span-2"
+			/>
+			<ServiceCard
+				iconClass="mdi:rocket-launch"
+				title="Marketing y Ventas"
+				description="El marketing y las ventas ayudan a que tu negocio crezca y sea visible. Son fundamentales para atraer nuevos clientes, fidelizar a los existentes y diferenciarte de la competencia. Una buena estrategia permite posicionar tu marca, aumentar tus ingresos y adaptarte a los cambios del mercado, asegurando el éxito a largo plazo."
+			/>
+			<ServiceCard
+				iconClass="mdi:account-cog"
+				title="Finanzas y Contabilidad"
+				description="Las finanzas y la contabilidad son esenciales para tu negocio, incluso si no tienes experiencia previa. Te ayudan a controlar ingresos y gastos, tomar mejores decisiones, evitar errores costosos y asegurar el crecimiento sostenible de tu empresa desde el inicio."
+			/>
+		</div>
+	</SectionContainer>
+
+	<SectionFull>
+		<TargetCard
+			introText="Atraemos empresas que comparten principios <br /> construimos juntos con propósito"
+			mainTitle="Nuestros <br /> Valores"
+			description="Creemos en relaciones que se construyen desde los valores, no solo desde los resultados. Porque cuando compartimos principios guiados por la fe, cultivamos vínculos honestos, servicio genuino y propósitos que honran a Dios."
+			ctaText="Descubrir valores"
+			ctaHref="/valores"
+			bgImage="https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg"
+			overlayColor="bg-black/40"
+			secondHeading="¿Sabías que?"
+			preContent="La fe"
+			contentHTML="Mientras el mundo mide el éxito en ganancias, la fe enfoca en impacto..."
+		/>
+	</SectionFull>
+
+	<SectionContainer title="Principales retos" extraClasses="overflow-hidden">
+		<div id="track" class="flex gap-10 p-5 lg:gap-4 lg:p-10">
+			<Gallery
+				bgImage="https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg"
+				iconClass="mdi:account-cog"
+				title="Adaptabilidad"
+				content="Aprender a vivir en constante cambio. Evolucionar y tropicalizarse."
+			/>
+			<Gallery
+				bgImage="https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg"
+				iconClass="mdi:account-alert"
+				title="Medir riesgos"
+				content="Aprender de tus errores y basarse en ellas para tomar decisiones acertadas. Lo que no se mide no se puede mejorar."
+			/>
+			<Gallery
+				bgImage="https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg"
+				iconClass="mdi:account-search"
+				title="Buscar y aprovechar oportunidades"
+				content="En un mundo globalizado y conectado digitalmente, ya no hay excusas para encontrar todo lo que se necesita y llegar a la cima."
+			/>
+			<Gallery
+				bgImage="https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg"
+				iconClass="mdi:lightbulb-on-10"
+				title="Innovación constante"
+				content="Llegar a la cima es una cosa, mantenerse ahí es otra cosa. Aprender a reinventarse todos los días."
+			/>
+		</div>
+		<div class="flex justify-center my-10">
+			<button
+				id="nextBtn"
+				class="bg-yellow-300 hover:bg-yellow-500 text-[13px] sm:text-[15px] py-2 px-4 sm:py-3 sm:px-6 rounded-xl mt-3 transition delay-150 text-black font-bold"
+				><Icon name="mdi:arrow-right-bold" /></button
+			>
+		</div>
+	</SectionContainer>
+
+	<Footer />
 </Layout>

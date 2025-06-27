@@ -1,0 +1,19 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+    href?: string;
+    icon?: string;
+    bgColor?: string;
+}
+
+const {
+    href = "#",
+    icon = "mdi:mdi:whatsapp",
+    bgColor = "bg-yellow-300",
+} = Astro.props as Props;
+---
+
+<a href={href} class={`${bgColor} text-black rounded-full py-3 px-3 transition`}>
+    <Icon name={icon} />
+</a>
