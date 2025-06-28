@@ -12,6 +12,7 @@ interface Props {
     secondHeading?: string;
     preContent?: string;
     contentHTML?: string;
+    name?: string;
 }
 
 const {
@@ -24,15 +25,16 @@ const {
   overlayColor = 'bg-black/40',
   secondHeading = '',
   preContent = '',
-  contentHTML = ``
+  contentHTML = ``,
+  name = '',
 } = Astro.props as Props;
 ---
 
 
 <div class="grid grid-cols-1 lg:grid-cols-3 mt-10 mx-5 lg:mx-0">
   <div class="bg-gray-300 p-10 font-[700] rounded-t-lg lg:rounded-none h-[500px] lg:h-[700px] flex flex-col items-start justify-center gap-1 sm:gap-4">
-    <span class="text-md lg:text-lg text-start" set:html={introText}></span>
-    <span class="text-4xl 2xl:text-6xl text-start" set:html={mainTitle}></span>
+    <span class="text-sm lg:text-md text-start" set:html={introText}></span>
+    <span class="text-5xl lg:text-7xl text-start" set:html={mainTitle} transition:name={name}></span>
     <p class="text-start" set:html={description}></p>
     <ButtonDefault
       href={ctaHref}
@@ -43,7 +45,7 @@ const {
     <div class="absolute top-0 left-0 w-full h-full">
       <div class={`relative ${overlayColor} h-full z-1`}></div>
       <Image
-          class="absolute top-0 w-full h-full objec-cover"
+          class="absolute top-0 w-full h-full object-cover"
           src={bgImage}
           alt="Example image"
           width="50"

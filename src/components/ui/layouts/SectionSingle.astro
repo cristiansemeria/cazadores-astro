@@ -3,12 +3,14 @@ import SectionFull from "./SectionFull.astro";
 
 interface Props {
     title?: string;
+	name?: string;
     bgImage?: string;
 }
 
 const {
     title = "Título por defecto",
     bgImage = "",
+	name = "",
 } = Astro.props as Props;
 ---
 <SectionFull 
@@ -18,5 +20,5 @@ const {
 		<div class="relative bg-black/30 h-full z-1"></div>
 		<img class="absolute top-0 w-full h-full object-cover" src={bgImage} alt="">
 	</div>
-		<p class="z-1">{title}</p>
+		<p class="z-1 text-7xl" transition:name={name}>{title}</p>
 </SectionFull>

@@ -1,8 +1,20 @@
 ---
+import Footer from "../components/Footer.astro";
+import Menu from "../components/ui/Menu.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/ui/layouts/SectionContainer.astro";---
 
----
-
-<div>
-    Error 404: Page Not Found
-    <p>Sorry, the page you are looking for does not exist.</p>
-</div>
+<Layout>
+    <Header extraClasses="container mx-auto" />
+    <Menu />
+    <SectionContainer
+        extraClasses="h-[calc(100vh-150px)]"
+    >
+        <div class="flex flex-col lg:flex-row justify-center items-center gap-10 h-full">
+            <span class="text-[120px] leading-none">404<br>Error</span>
+            <p class="text-[40px] lg:text-[50px] leading-none lg:text-start">Si mi fé no falla<br>esta pagina aun no existe.</p>
+        </div>
+    </SectionContainer>
+    <Footer />
+</Layout>

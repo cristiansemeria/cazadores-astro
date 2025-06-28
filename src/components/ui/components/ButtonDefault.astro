@@ -4,18 +4,20 @@ interface Props {
     bgColor?: string
     bgColorHover?: string;
     text?: string;
+    extraClasses?: string;
 }
 
 const {
     href = "#",
     bgColorHover = "bg-yellow-500",
     bgColor = "bg-yellow-300",
-    text = "Mas Información" 
+    text = "Mas Información",
+    extraClasses = ""
 } = Astro.props as Props;
 ---
 
 <a
     href={href}
-    class={`${bgColor} hover:${bgColorHover} text-[13px] sm:text-[15px] py-2 px-4 sm:py-3 sm:px-6 rounded-xl mt-3 transition delay-150 text-black font-bold`}
+    class={`${bgColor} hover:${bgColorHover} text-[13px] sm:text-[15px] py-2 px-4 sm:py-3 sm:px-6 rounded-xl mt-3 transition delay-150 text-black font-bold ${extraClasses}`}
     >{text}</a
 >

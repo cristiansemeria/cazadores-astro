@@ -49,20 +49,23 @@ import ButtonDefault from "./components/ButtonDefault.astro";
             class="container mx-auto w-full relative top-[100px] flex flex-col justify-between px-4 text-white pt-10 h-[calc(100vh-100px)]"
         >
             <div
-                class="flex flex-col justify-center sm:justify-start items-start"
+                class="flex flex-col justify-center sm:justify-start items-start gap-5"
             >
-                <p class="text-2xl lg:text-[35px] font-semibold">
+                <p class="text-md lg:text-[20px] font-semibold">
                     Los negocios son una herramienta para bendecir a las personas y glorificar a Dios
                 </p>
                 <h2
-                    class="text-5xl lg:text-[130px] flex flex-col font-bold w-full h-full relative"
+                    class="text-5xl lg:text-[110px] flex flex-col font-bold w-full h-full relative"
                 >
                     Somos&nbsp;
                     <span id="text-inner" class="inline-block w-full">
                         <span> cargando ... </span>
                     </span>
                 </h2>
-                <ButtonDefault href="/nosotros" />
+                <ButtonDefault
+                    href="/nosotros"
+                    extraClasses="z-2"
+                />
             </div>
             <div class="flex flex-row justify-end text-3xl gap-3">
                 <IconLink
