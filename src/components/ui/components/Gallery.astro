@@ -18,36 +18,41 @@ const {
 
 <script>
     import { gsap } from "gsap";
-    const track = document.getElementById("track");
-    const nextBtn = document.getElementById("nextBtn");
-    let slideIndex = 0;
-    let totalSlides = 0;
+    function gallerySlider(){
+        const track = document.getElementById("track");
+        const nextBtn = document.getElementById("nextBtn");
+        let slideIndex = 0;
+        let totalSlides = 0;
 
-    function updateSlides() {
-        const perView = window.innerWidth < 1050 ? 1 : 3;
-        if (track) {
-            totalSlides = Math.ceil(track.children.length / perView);
-            // Ajustar índice si excede
-            slideIndex = Math.min(slideIndex, totalSlides - 1);
-            // Aplicar posición inicial sin animación
-            gsap.set(track, { xPercent: -100 * slideIndex });
+        function updateSlides() {
+            const perView = window.innerWidth < 1050 ? 1 : 3;
+            if (track) {
+                totalSlides = Math.ceil(track.children.length / perView);
+                // Ajustar índice si excede
+                slideIndex = Math.min(slideIndex, totalSlides - 1);
+                // Aplicar posición inicial sin animación
+                gsap.set(track, { xPercent: -100 * slideIndex });
+            }
+        }
+
+        window.addEventListener("resize", updateSlides);
+        // Inicializar
+        updateSlides();
+
+        if (nextBtn) {
+            nextBtn.addEventListener("click", () => {
+                slideIndex = (slideIndex + 1) % totalSlides;
+                gsap.to(track, {
+                    xPercent: -100 * slideIndex,
+                    duration: 0.6,
+                    ease: "power2.inOut",
+                });
+            });
         }
     }
+    document.addEventListener("astro:after-swap", gallerySlider);
+    gallerySlider();
 
-    window.addEventListener("resize", updateSlides);
-    // Inicializar
-    updateSlides();
-
-    if (nextBtn) {
-        nextBtn.addEventListener("click", () => {
-            slideIndex = (slideIndex + 1) % totalSlides;
-            gsap.to(track, {
-                xPercent: -100 * slideIndex,
-                duration: 0.6,
-                ease: "power2.inOut",
-            });
-        });
-    }
 </script>
 
 <div

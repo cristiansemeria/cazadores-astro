@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
 bgImage?: string;
 title?: string;
@@ -19,10 +21,14 @@ const {
 >
   <div class="absolute top-0 left-0 w-full h-full">
     <div class="relative bg-black/30 h-full z-1"></div>
-    <img
-      class="absolute top-0 w-full h-full object-cover"
-      src={bgImage}
-      alt=""
+    <Image
+        class="absolute top-0 w-full h-full objec-cover"
+        src={bgImage}
+        alt="Example image"
+        width="50"
+        height="50"
+        decoding="async"
+        loading="lazy"
     />
   </div>
   <span class="text-start z-1" set:html={title}></span>

@@ -2,45 +2,47 @@
 
 ---
 <script>
-    
     import { gsap } from "gsap";
-    const menu = document.getElementById("menu");
-    const btnMenu = document.getElementById("btn-menu");
-    const btnClose = document.getElementById("btn-close");
-    
-    if (btnMenu) {
-        btnMenu.addEventListener("click", () => {
-            gsap.fromTo(
-                menu,
-                { x: "-100%", opacity: 0 }, // Inicio: fuera de pantalla a la izquierda
-                {
-                    x: "0%",
-                    opacity: 1,
-                    duration: 0.5,
-                    ease: "power2.out",
-                    display: "flex",
-                }, // Fin: en pantalla con transición suave
-            );
-        });
-    }
+    function testJs () {
+        const menu = document.getElementById("menu");
+        const btnMenu = document.getElementById("btn-menu");
+        const btnClose = document.getElementById("btn-close");
 
-    if (btnClose) {
-        btnClose.addEventListener("click", () => {
-            gsap.to(menu, {
-                y: "100%", // Se mueve hacia abajo
-                opacity: 0,
-                duration: 0.3,
-                ease: "power2.in",
-                onComplete: () => {
-                    if (menu) {
-                        menu.style.display = "none"; // Se oculta después de la animación
-                        gsap.set(menu, { y: "0%" }); // Restablece la posición para la siguiente apertura
-                    }
-                },
+        if (btnMenu) {
+            btnMenu.addEventListener("click", () => {
+                gsap.fromTo(
+                    menu,
+                    { x: "-100%", opacity: 0 }, // Inicio: fuera de pantalla a la izquierda
+                    {
+                        x: "0%",
+                        opacity: 1,
+                        duration: 0.5,
+                        ease: "power2.out",
+                        display: "flex",
+                    }, // Fin: en pantalla con transición suave
+                );
             });
-        });
+        }
+
+        if (btnClose) {
+            btnClose.addEventListener("click", () => {
+                gsap.to(menu, {
+                    y: "100%", // Se mueve hacia abajo
+                    opacity: 0,
+                    duration: 0.3,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        if (menu) {
+                            menu.style.display = "none"; // Se oculta después de la animación
+                            gsap.set(menu, { y: "0%" }); // Restablece la posición para la siguiente apertura
+                        }
+                    },
+                });
+            });
+        }
     }
-    
+    document.addEventListener("astro:after-swap", testJs);
+    testJs();
 </script>
 <div
     id="menu"

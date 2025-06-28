@@ -5,33 +5,37 @@
     import { gsap } from "gsap";
     import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
     gsap.registerPlugin(DrawSVGPlugin);
-    var tl = gsap.timeline();
+    function loaderEvent() {
+        var tl = gsap.timeline();
 
-    // Animación del SVG apareciendo progresivamente
-    tl.fromTo("#cazadores-letter path", {drawSVG: "0% 0%"}, {duration: 5, drawSVG: "0% 100%", ease: "power1.out"});
-    const setLoading = () => {
-        const loadingElem = document.querySelector(".loading");
-        if (loadingElem) {
-            loadingElem.innerHTML = Math.floor(tl.progress() * 100) + "%";
-        }
-    };
-    // Animación del loading y cambio de color cuando termine
-    gsap.to(".loading", {
-        innerHTML: "100%",
-        duration: 5,
-        ease: "none",
-        onUpdate: setLoading,
-        onComplete: function () {
-            gsap.to("#cazadores-letter path", {fill: "white", duration: 1, onComplete: function () {
-                    // Aparecer el arrow suavemente después de que el fill sea blanco
-                    gsap.to("#cazadores-arrow", {opacity: 1, x: 0, duration: 1, ease: "power2.out", onComplete: function () {
-                            // Iniciar la animación de la flecha
-                            gsap.to("#preloader", {opacity: 0, display: "none", duration: 1, ease: "power2.out"});
-                        }});
-                }});
-        }
-    });
-    tl.play();
+        // Animación del SVG apareciendo progresivamente
+        tl.fromTo("#cazadores-letter path", {drawSVG: "0% 0%"}, {duration: 5, drawSVG: "0% 100%", ease: "power1.out"});
+        const setLoading = () => {
+            const loadingElem = document.querySelector(".loading");
+            if (loadingElem) {
+                loadingElem.innerHTML = Math.floor(tl.progress() * 100) + "%";
+            }
+        };
+        // Animación del loading y cambio de color cuando termine
+        gsap.to(".loading", {
+            innerHTML: "100%",
+            duration: 5,
+            ease: "none",
+            onUpdate: setLoading,
+            onComplete: function () {
+                gsap.to("#cazadores-letter path", {fill: "white", duration: 1, onComplete: function () {
+                        // Aparecer el arrow suavemente después de que el fill sea blanco
+                        gsap.to("#cazadores-arrow", {opacity: 1, x: 0, duration: 1, ease: "power2.out", onComplete: function () {
+                                // Iniciar la animación de la flecha
+                                gsap.to("#preloader", {opacity: 0, display: "none", duration: 1, ease: "power2.out"});
+                            }});
+                    }});
+            }
+        });
+        tl.play();
+    }
+    document.addEventListener("astro:after-swap", loaderEvent);
+    loaderEvent();
 </script>
 <style>
     .cls-1 {

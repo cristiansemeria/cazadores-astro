@@ -5,37 +5,42 @@ import ButtonDefault from "./components/ButtonDefault.astro";
 
 <script>
     import { gsap } from "gsap";
-    const words = ["cazadores", "emprendedores", "innovadores", "creativos"];
-    const inner = document.getElementById("text-inner");
+    function letterAnimation() {
+        const words = ["cazadores", "emprendedores", "innovadores", "creativos"];
+        const inner = document.getElementById("text-inner");
 
-    // 4. Crea un timeline que repita infinitamente
-    const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+        // 4. Crea un timeline que repita infinitamente
+        const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
 
-    words.forEach((word, i) => {
-        // anima la palabra actual hacia arriba y desvanece
-        tl.to(inner, {
-            duration: 0.5,
-            y: "-70%",
-            opacity: 0,
-            ease: "power1.in",
-        });
-        // just before next anim, cambia el texto y reposiciona abajo
-        tl.call(() => {
-            if (inner) {
-                inner.textContent = words[(i + 1) % words.length];
-                gsap.set(inner, { y: "30%" });
-            }
-        });
-        // trae la nueva palabra desde abajo al centro
-        tl.to(inner, {
-            duration: 0.5,
-            y: "0%",
-            opacity: 1,
-            ease: "power1.out",
-        });
-        // pausa un instante antes de repetir con la siguiente
-        tl.to({}, { duration: 2 });
-    });
+        words.forEach((word, i) => {
+            // anima la palabra actual hacia arriba y desvanece
+            tl.to(inner, {
+                duration: 0.5,
+                y: "-70%",
+                opacity: 0,
+                ease: "power1.in",
+                });
+            // just before next anim, cambia el texto y reposiciona abajo
+            tl.call(() => {
+                if (inner) {
+                    inner.textContent = words[(i + 1) % words.length];
+                    gsap.set(inner, { y: "30%" });
+                    }
+                });
+            // trae la nueva palabra desde abajo al centro
+            tl.to(inner, {
+                duration: 0.5,
+                y: "0%",
+                opacity: 1,
+                ease: "power1.out",
+                });
+            // pausa un instante antes de repetir con la siguiente
+            tl.to({}, { duration: 2 });
+            });
+    }
+        document.addEventListener("astro:after-swap", letterAnimation);
+        letterAnimation();
+
 </script>
 <div id="slider" class="w-full h-full relative">
     <div id="cover" class="bg-black/30 w-full h-full absolute z-1">

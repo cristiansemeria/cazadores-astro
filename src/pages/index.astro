@@ -12,9 +12,11 @@ import TargetCard from "../components/ui/components/TargetCard.astro";
 //import ComponentVue from "../components/ui/components/ComponentVue.vue";
 import Gallery from "../components/ui/components/Gallery.astro";
 import { Icon } from "astro-icon/components";
+
 ---
 
 <Layout>
+	<Loader />
 	<Slider />
 
 	<Menu />
@@ -31,6 +33,7 @@ import { Icon } from "astro-icon/components";
 					"No tienen idea de como empezar",
 				]}
 				extraClasses="lg:col-span-2"
+				bgImage="https://storage.googleapis.com/cazadores-bucket/assets/innovacion-cazadores.png"
 			/>
 			<ServiceCard
 				iconClass="mdi:rocket-launch"
@@ -52,36 +55,36 @@ import { Icon } from "astro-icon/components";
 			description="Creemos en relaciones que se construyen desde los valores, no solo desde los resultados. Porque cuando compartimos principios guiados por la fe, cultivamos vínculos honestos, servicio genuino y propósitos que honran a Dios."
 			ctaText="Descubrir valores"
 			ctaHref="/valores"
-			bgImage="https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg"
+			bgImage="https://storage.googleapis.com/cazadores-bucket/assets/valores-cazadores-section.png"
 			overlayColor="bg-black/40"
 			secondHeading="¿Sabías que?"
 			preContent="La fe"
-			contentHTML="Mientras el mundo mide el éxito en ganancias, la fe enfoca en impacto..."
+			contentHTML="Mientras el mundo mide el éxito en ganancias, la fe enfoca en impacto."
 		/>
 	</SectionFull>
 
 	<SectionContainer title="Principales retos" extraClasses="overflow-hidden">
 		<div id="track" class="flex gap-10 p-5 lg:gap-4 lg:p-10">
 			<Gallery
-				bgImage="https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg"
+				bgImage="https://storage.googleapis.com/cazadores-bucket/assets/adaptabilidad.png"
 				iconClass="mdi:account-cog"
 				title="Adaptabilidad"
 				content="Aprender a vivir en constante cambio. Evolucionar y tropicalizarse."
 			/>
 			<Gallery
-				bgImage="https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg"
+				bgImage="https://storage.googleapis.com/cazadores-bucket/assets/riesgos.png"
 				iconClass="mdi:account-alert"
 				title="Medir riesgos"
 				content="Aprender de tus errores y basarse en ellas para tomar decisiones acertadas. Lo que no se mide no se puede mejorar."
 			/>
 			<Gallery
-				bgImage="https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg"
+				bgImage="https://storage.googleapis.com/cazadores-bucket/assets/oportunidades.png"
 				iconClass="mdi:account-search"
 				title="Buscar y aprovechar oportunidades"
 				content="En un mundo globalizado y conectado digitalmente, ya no hay excusas para encontrar todo lo que se necesita y llegar a la cima."
 			/>
 			<Gallery
-				bgImage="https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg"
+				bgImage="https://storage.googleapis.com/cazadores-bucket/assets/innovacion.png"
 				iconClass="mdi:lightbulb-on-10"
 				title="Innovación constante"
 				content="Llegar a la cima es una cosa, mantenerse ahí es otra cosa. Aprender a reinventarse todos los días."
