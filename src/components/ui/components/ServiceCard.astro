@@ -4,17 +4,19 @@ interface Props {
     iconClass?: string;
     title?: string;
     description?: string;
+    defaultClasses?: string;
     extraClasses?: string;
 }
 const {
     iconClass = "mdi:mdi:rocket-launch",
     title = "Innovación constante",
     description = "Impulsamos la innovación en tu empresa con estrategias efectivas y personalizadas.",
+    defaultClasses = "bg-yellow-400 h-[500px]",
     extraClasses = ""
 } = Astro.props as Props;
 ---
 
-<div class={`bg-yellow-400 p-4 rounded-xl font-[700] h-[500px] flex flex-col items-start justify-center gap-5 ${extraClasses}`}>
+<div class={`${defaultClasses} p-4 rounded-xl font-[700] flex flex-col items-start justify-center gap-5 ${extraClasses}`}>
   <div class="flex flex-col items-start gap-2">
     <div class="bg-black text-white p-2 rounded-full text-2xl">
       <Icon name={iconClass} />

@@ -4,11 +4,66 @@ import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import SectionSingle from '../components/ui/layouts/SectionSingle.astro';
+import ServiceCard from "../components/ui/components/ServiceCard.astro";
+import SectionContainer from "../components/ui/layouts/SectionContainer.astro";
 ---
 
 <Layout>
 	<Header extraClasses="container mx-auto" />
     <Menu />
-	<SectionSingle title="Nosotros" bgImage="https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg" />
+	<SectionSingle title="Nosotros" bgImage="https://storage.googleapis.com/cazadores-bucket/assets/nosotros-cazadores-section.png" />
+		<SectionContainer>
+			<div class="grid grid-cols-4 gap-5">
+				<ServiceCard
+					iconClass="mdi:mdi:rocket-launch"
+					title="Integridad"
+					description="Actuar con honestidad y transparencia en cada decisión."
+					defaultClasses="bg-green-200 h-[400px]"
+					extraClasses=""
+				/>
+				<ServiceCard
+					iconClass="mdi:mdi:rocket-launch"
+					title="Servicio"
+					description="Poner nuestros dones y conocimientos al servicio de los demas."
+					defaultClasses="bg-green-200 h-[400px]"
+					extraClasses=""
+				/>
+				<ServiceCard
+					iconClass="mdi:mdi:rocket-launch"
+					title="Excelencia"
+					description="Hacer todo como para el Señor, con dedicacion y esfuerzo"
+					defaultClasses="bg-green-200 h-[400px]"
+					extraClasses=""
+				/>
+				<ServiceCard
+					iconClass="mdi:mdi:rocket-launch"
+					title="Integridad"
+					description="Actuar con honestidad y transparencia en cada decisión"
+					defaultClasses="bg-green-200 h-[400px]"
+					extraClasses=""
+				/>
+				<ServiceCard
+					iconClass="mdi:mdi:rocket-launch"
+					title="Integridad"
+					description="Actuar con honestidad y transparencia en cada decisión"
+					defaultClasses="bg-green-200 h-[400px]"
+					extraClasses=""
+				/>
+				<ServiceCard
+					iconClass="mdi:mdi:rocket-launch"
+					title="Integridad"
+					description="Actuar con honestidad y transparencia en cada decisión"
+					defaultClasses="bg-green-200 h-[400px]"
+					extraClasses=""
+				/>
+				<ServiceCard
+					iconClass="mdi:mdi:rocket-launch"
+					title="Integridad"
+					description="Actuar con honestidad y transparencia en cada decisión"
+					defaultClasses="bg-green-200 h-[400px]"
+					extraClasses=""
+				/>
+			</div>
+		</SectionContainer>
 	<Footer />
 </Layout>
