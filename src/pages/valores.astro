@@ -4,15 +4,86 @@ import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import SectionSingle from '../components/ui/layouts/SectionSingle.astro';
+import SectionContainer from "../components/ui/layouts/SectionContainer.astro";
+import ServiceCard from "../components/ui/components/ServiceCard.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout>
     <Header extraClasses="container mx-auto" />
     <Menu />
     <SectionSingle
-        title="Nuestros Valores"
+        title="Valores"
         bgImage="https://storage.googleapis.com/cazadores-bucket/assets/valores-cazadores-section.png"
         name="valores"
     />
+    <SectionContainer
+            title="Nuestros valores"
+            subtitle="Son importantes para ayudar a las personas y a Dios"
+    >
+        <div class="grid grid-cols-1 mx-5 lg:mx-0 lg:grid-cols-4 gap-5 my-5">
+            <ServiceCard
+                    iconClass="mdi:handshake-outline"
+                    iconColor="text-black bg-yellow-300"
+                    title="Integridad"
+                    description="Actuar con honestidad y transparencia en cada decisión."
+                    defaultClasses="bg-black text-white transition duration-100 ease-in-out h-[400px]"
+                    extraClasses=""
+            />
+            <ServiceCard
+                    iconClass="mdi:hand-coin"
+                    iconColor="text-black bg-yellow-300"
+                    title="Servicio"
+                    description="Poner nuestros dones y conocimientos al servicio de los demas."
+                    defaultClasses="bg-black text-white transition duration-100 ease-in-out h-[400px]"
+                    extraClasses=""
+            />
+            <ServiceCard
+                    iconClass="mdi:account-check-outline"
+                    iconColor="text-black bg-yellow-300"
+                    title="Excelencia"
+                    description="Hacer todo como para el Señor, con dedicacion y esfuerzo"
+                    defaultClasses="bg-black text-white transition duration-100 ease-in-out h-[400px]"
+                    extraClasses=""
+            />
+            <ServiceCard
+                    iconClass="mdi:hands-pray"
+                    iconColor="text-black bg-yellow-300"
+                    title="Fe"
+                    description="Confiar en que Dios guia cada paso en el crecimiento de nuestros negocios."
+                    defaultClasses="bg-black text-white transition duration-100 ease-in-out h-[400px]"
+                    extraClasses=""
+            />
+            <ServiceCard
+                    iconClass="mdi:arm-flex-outline"
+                    iconColor="text-black bg-yellow-300"
+                    title="Compromiso"
+                    description="Perseverar en la formación, el trabajo y la mejora continua."
+                    defaultClasses="bg-black text-white transition duration-100 ease-in-out h-[400px]"
+                    extraClasses=""
+            />
+            <ServiceCard
+                    iconClass="mdi:account-group"
+                    iconColor="text-black bg-yellow-300"
+                    title="Unidad"
+                    description="Construir relaciones sólidas basadas en el respeto y la colaboración"
+                    defaultClasses="bg-black text-white transition duration-100 ease-in-out h-[400px]"
+                    extraClasses=""
+            />
+            <ServiceCard
+                    iconClass="mdi:account-file-text"
+                    iconColor="text-black bg-yellow-300"
+                    title="Mayordomía"
+                    description="Administrar sabiamente los recursos que Dios nos ha confiado."
+                    defaultClasses="bg-black text-white transition duration-100 ease-in-out h-[400px]"
+                    extraClasses=""
+            />
+            <a href="#" class="flex flex-col items-center justify-center text-5xl">
+                <span class="text-2xl">Unete a nuestra proxima generación de cazadores</span>
+                <Icon name=mdi:arrow-bottom-right-thick
+                />
+            </a>
+        </div>
+    </SectionContainer>
     <Footer />
 </Layout>
