@@ -1,0 +1,33 @@
+---
+import Menu from '../components/ui/Menu.astro';
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SectionSingle from '../components/ui/layouts/SectionSingle.astro';
+import SectionContainer from "../components/ui/layouts/SectionContainer.astro";
+---
+
+<Layout>
+    <Header extraClasses="container mx-auto" />
+    <Menu />
+    <SectionSingle title="Objetivos" bgImage="https://storage.googleapis.com/cazadores-bucket/assets/objetivos-cazadores-section.png" />
+    <SectionContainer
+        title="Nuestros objetivos"
+        subtitle="Es importante sabes cuales son los"
+    >
+        <div class="grid grid-cols-5">
+            <div class="flex flex-col gap-2 bg-yellow-300 p-5">
+                <div class="text-6xl font-bold flex flex-row items-end">
+                    <span>01</span>
+                    <span class="text-4xl">OBJETIVO</span>
+                </div>
+                <div class="text-start font-[600]">
+                    <span>Facilitar conexiones estratégicas a través de un
+                    ambiente de networking donde los participantes
+                    puedan colaborar y fortalecerse mutuamente</span>
+                </div>
+            </div>
+        </div>
+    </SectionContainer>
+    <Footer />
+</Layout>

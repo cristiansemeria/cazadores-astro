@@ -14,11 +14,13 @@ const {
 } = Astro.props as Props;
 ---
 <SectionFull 
-	extraClasses='h-[300px] lg:h-[500px] flex justify-center items-center text-white text-5xl font-bold relative overflow-hidden mb-10'
+	extraClasses='h-[300px] lg:h-[500px] flex items-end text-white text-5xl font-bold relative overflow-hidden mb-10'
 	>
 	<div class="absolute top-0 left-0 w-full h-full">
-		<div class="relative bg-black/30 h-full z-1"></div>
+		<div class="relative bg-linear-to-t from-black to-black/10 h-full z-1"></div>
 		<img class="absolute top-0 w-full h-full object-cover" src={bgImage} alt="">
 	</div>
-		<p class="z-1 text-7xl" transition:name={name}>{title}</p>
+	<div class="container mx-auto z-1 lg:text-start">
+		<p class="lg:text-7xl" transition:name={name} set:html={title}></p>
+	</div>
 </SectionFull>
