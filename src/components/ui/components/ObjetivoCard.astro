@@ -1,0 +1,27 @@
+---
+interface Props {
+    title?: string,
+    number?: string,
+    description?: string,
+    color?: string,
+    size?: string,
+}
+
+const {
+    title =  "Objetivo",
+    number = "1",
+    description = "Mi Descripcion",
+    color = "bg-yellow-300",
+    size = "h-[300px] xl:h-[300px]"
+} = Astro.props as Props;
+---
+
+<div class={`flex flex-col ${color} gap-2 p-5 justify-between ${size} rounded-xl`}>
+    <div class="text-6xl font-bold flex flex-row items-end gap-1">
+        <span>{number}</span>
+        <span class="text-4xl">{title}</span>
+    </div>
+    <div class="text-start font-[600]">
+        <span>{description}</span>
+    </div>
+</div>
