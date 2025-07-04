@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import SectionSingle from '../components/ui/layouts/SectionSingle.astro';
 import SectionContainer from "../components/ui/layouts/SectionContainer.astro";
+import ObjetivoCard from "../components/ui/components/ObjetivoCard.astro";
 ---
 
 <Layout>
@@ -15,18 +16,40 @@ import SectionContainer from "../components/ui/layouts/SectionContainer.astro";
         title="Nuestros objetivos"
         subtitle="Es importante sabes cuales son los"
     >
-        <div class="grid grid-cols-5">
-            <div class="flex flex-col gap-2 bg-yellow-300 p-5">
-                <div class="text-6xl font-bold flex flex-row items-end">
-                    <span>01</span>
-                    <span class="text-4xl">OBJETIVO</span>
-                </div>
-                <div class="text-start font-[600]">
-                    <span>Facilitar conexiones estratégicas a través de un
-                    ambiente de networking donde los participantes
-                    puedan colaborar y fortalecerse mutuamente</span>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 xl:grid-cols-5 gap-5 xl:h-[800px] items-end mt-5 mx-5 xl:mx-0">
+            <ObjetivoCard
+                    title="Objetivo"
+                    description="Facilitar conexiones estratégicas a través de un ambiente de networking donde los participantes puedan colaborar y fortalecerse mutuamente."
+                    number="1"
+            />
+            <ObjetivoCard
+                    title="Objetivo"
+                    description="Brindar formación práctica en áreas clave del negocio, con cápsulas de finanzas, marketing, administración, imagen personal y empresarial, tecnologías y otros temas relevantes."
+                    number="2"
+                    color="bg-orange-300"
+                    size="h-[300px] xl:h-[400px]"
+            />
+            <ObjetivoCard
+                    title="Objetivo"
+                    description="Proveer acompañamiento y mentoría con expertos que guíen a los empresarios en la implementación de estrategias efectivas para su crecimiento."
+                    number="3"
+                    color="bg-blue-300"
+                    size="h-[300px] xl:h-[500px]"
+            />
+            <ObjetivoCard
+                    title="Objetivo"
+                    description="Impulsar el desarrollo integral de los participantes, ayudándolos a fortalecer su liderazgo y visión empresarial con base en principios bíblicos."
+                    number="4"
+                    color="bg-green-300"
+                    size="h-[300px] xl:h-[600px]"
+            />
+            <ObjetivoCard
+                    title="Objetivo"
+                    description="Fomentar negocios con propósito, que no solo busquen rentabilidad, sino que sean una fuente de bendición para sus familias, empleados y comunidades."
+                    number="5"
+                    color="bg-purple-300"
+                    size="h-[300px] xl:h-[700px]"
+            />
         </div>
     </SectionContainer>
     <Footer />
