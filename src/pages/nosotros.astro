@@ -7,6 +7,8 @@ import SectionSingle from '../components/ui/layouts/SectionSingle.astro';
 import SectionContainer from "../components/ui/layouts/SectionContainer.astro";
 
 import { Image } from 'astro:assets';
+import GalleryCard from "../components/ui/components/GalleryCard.astro";
+import {Icon} from "astro-icon/components";
 ---
 
 <Layout>
@@ -89,6 +91,52 @@ import { Image } from 'astro:assets';
 					</p>
 				</div>
 			</div>
+		</div>
+	</SectionContainer>
+	<SectionContainer title="¿Como lo hacemos?" extraClasses="overflow-hidden">
+		<div id="track" class="flex gap-10 p-5 lg:gap-3 lg:p-10">
+			<GalleryCard
+				bgImage="https://storage.googleapis.com/cazadores-bucket/assets/como-le-hacemos/como-le-hacemos-identidad.png"
+				title="Identidad"
+				description="Toda empresa exitosa debe comenzar definiendo su identidad. Esto implica tener una misión clara, valores sólidos y una propuesta de valor única que la diferencie en el mercado. Sin una identidad bien establecida, la empresa carece de dirección y difícilmente podrá conectar con su audiencia o generar confianza en su equipo."
+			/>
+			<GalleryCard
+				bgImage="https://storage.googleapis.com/cazadores-bucket/assets/como-le-hacemos/como-le-hacemos-visibilidad.png"
+				title="Visibilidad"
+				description="No basta con existir; hay que ser visto. La visibilidad es clave para atraer clientes y generar oportunidades de negocio. Esto se logra a través del marketing estratégico, presencia digital y relaciones públicas. Sin visibilidad, incluso el mejor producto o servicio pasará desapercibido."
+			/>
+			<GalleryCard
+				bgImage="https://storage.googleapis.com/cazadores-bucket/assets/como-le-hacemos/como-le-hacemos-credibilidad.png"
+				title="Credibilidad"
+				description="La confianza del mercado es el siguiente paso. La credibilidad se construye con experiencias positivas de los clientes, testimonios, reputación online y cumplimiento de promesas. Si una empresa no logra ser creíble, difícilmente logrará ventas recurrentes ni recomendaciones."
+			/>
+			<GalleryCard
+				bgImage="https://storage.googleapis.com/cazadores-bucket/assets/como-le-hacemos/como-le-hacemos-rentabilidad.png"
+				title="Rentabilidad"
+				description="Ser visible y creíble no tiene sentido si no se traduce en ingresos sostenibles. La empresa debe alcanzar la rentabilidad para asegurar su supervivencia y crecimiento. Esto implica optimizar costos, mejorar márgenes y ofrecer productos o servicios con alto valor percibido."
+			/>
+			<GalleryCard
+				bgImage="https://storage.googleapis.com/cazadores-bucket/assets/como-le-hacemos/como-le-hacemos-escabilidad.png"
+				title="Escalabilidad"
+				description="Una vez rentable, la empresa debe pensar en crecer sin que los costos aumenten al mismo ritmo. La escalabilidad permite atender más clientes y expandirse sin perder eficiencia ni calidad. Esto se logra con procesos bien estructurados y un modelo de negocio adaptable."
+			/>
+			<GalleryCard
+				bgImage="https://storage.googleapis.com/cazadores-bucket/assets/como-le-hacemos/como-le-hacemos-estandarizaci%C3%B3n.png"
+				title="Estandarización y Duplicidad"
+				description="El crecimiento no debe depender de una sola persona. Estandarizar procesos y duplicar lo que funciona garantiza que la empresa pueda operar de manera consistente, independientemente de quién ejecute las tareas. Esto facilita la expansión y la creación de nuevas sucursales o franquicias."
+			/>
+			<GalleryCard
+				bgImage="https://storage.googleapis.com/cazadores-bucket/assets/como-le-hacemos/como-le-hacemos-automatizacion.png"
+				title="Sistematización, Automatización"
+				description="Finalmente, la empresa debe incorporar tecnología y sistemas para hacer más eficientes sus operaciones. La automatización reduce errores, mejora la productividad y permite enfocarse en la innovación. Sin este paso, el crecimiento se vuelve insostenible y el negocio puede estancarse. "
+			/>
+		</div>
+		<div class="flex justify-center my-10">
+			<button
+				id="nextBtn"
+				class="bg-yellow-300 hover:bg-yellow-500 text-[13px] sm:text-[15px] py-2 px-4 sm:py-3 sm:px-6 rounded-xl mt-3 transition delay-150 text-black font-bold"
+			><Icon name="mdi:arrow-right-bold" /></button
+			>
 		</div>
 	</SectionContainer>
 	<Footer />

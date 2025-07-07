@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+    bgImage?: string,
+    title?: string,
+    description?: string,
+}
+
+const {
+    bgImage = 'https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg',
+    title = '',
+    description = ''
+} = Astro.props as Props;
+---
+
+<script>
+    import { gsap } from "gsap";
+    function galleryCard(){
+        const track = document.getElementById("track");
+        const nextBtn = document.getElementById("nextBtn");
+        let slideIndex = 0;
+        let totalSlides = 0;
+
+        function updateSlides() {
+            const perView = window.innerWidth < 1050 ? 1 : 4;
+            if (track) {
+                totalSlides = Math.ceil(track.children.length / perView);
+                // Ajustar índice si excede
+                slideIndex = Math.min(slideIndex, totalSlides - 1);
+                // Aplicar posición inicial sin animación
+                gsap.set(track, { xPercent: -100 * slideIndex });
+            }
+        }
+
+        window.addEventListener("resize", updateSlides);
+        // Inicializar
+        updateSlides();
+
+        if (nextBtn) {
+            nextBtn.addEventListener("click", () => {
+                slideIndex = (slideIndex + 1) % totalSlides;
+                gsap.to(track, {
+                    xPercent: -100 * slideIndex,
+                    duration: 0.6,
+                    ease: "power2.inOut",
+                });
+            });
+        }
+    }
+    document.addEventListener("astro:after-swap", galleryCard);
+    galleryCard();
+</script>
+
+<div class="w-full lg:w-1/4 flex-shrink-0 flex flex-col gap-3">
+    <div>
+        <Image
+            src={bgImage}
+            class="w-full h-full object-cover rounded-xl"
+            alt="imagen"
+            width="50"
+            height="50"
+            decoding="async"
+            loading="lazy"
+        ></Image>
+    </div>
+    <div class="text-start flex flex-col gap-2">
+        <span class="text-2xl"> {title} </span>
+        <p class="font-[600]">{description}</p>
+    </div>
+
+</div>

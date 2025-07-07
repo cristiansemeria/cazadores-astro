@@ -1,0 +1,62 @@
+---
+import Menu from '../components/ui/Menu.astro';
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SectionSingle from '../components/ui/layouts/SectionSingle.astro';
+import SectionContainer from "../components/ui/layouts/SectionContainer.astro";
+import Gallery from "../components/ui/components/Gallery.astro";
+---
+
+<Layout>
+    <Header extraClasses="container mx-auto" />
+    <Menu />
+    <SectionSingle
+            title="Nuestros <br> Servicios"
+            bgImage="https://storage.googleapis.com/cazadores-bucket/assets/servicios-cazadores-section.png"
+            name="servicios"
+    />
+    <SectionContainer
+    >
+        <div class="grid grid-cols-3 gap-5 my-10">
+            <Gallery
+                    bgImage="https://storage.googleapis.com/cazadores-bucket/assets/servicios/thumbnail/mentorias.png"
+                    title="Mentorias personalizadas"
+                    isService
+                    href="mentorias"
+            />
+            <Gallery
+                    bgImage="https://storage.googleapis.com/cazadores-bucket/assets/servicios/thumbnail/reestructuracion.png"
+                    title="Reestructuracion de negocios"
+                    isService
+                    href="reestructuracion-negocios"
+            />
+            <Gallery
+                    bgImage="https://storage.googleapis.com/cazadores-bucket/assets/servicios/thumbnail/sitios-web.png"
+                    title="Sitios Web"
+                    isService
+                    href="sitios-web"
+            />
+            <Gallery
+                    bgImage="https://storage.googleapis.com/cazadores-bucket/assets/servicios/thumbnail/crm.png"
+                    title="CRM a la medida"
+                    isService
+                    href="desarrollo-crm"
+            />
+            <Gallery
+                    bgImage="https://storage.googleapis.com/cazadores-bucket/assets/servicios/thumbnail/seo.png"
+                    title="Posicionamiento SEO"
+                    isService
+                    href="seo"
+            />
+            <Gallery
+                    bgImage="https://storage.googleapis.com/cazadores-bucket/assets/servicios/thumbnail/shop.png"
+                    title="Tiendas en linea"
+                    isService
+                    href="tiendas-linea"
+            />
+
+        </div>
+    </SectionContainer>
+    <Footer />
+</Layout>

@@ -1,19 +1,30 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from 'astro:assets';
+import ButtonDefault from "./ButtonDefault.astro";
 
 interface Props {
     bgImage?: string;
     iconClass?: string;
     title?: string;
     content?: string;
+    isSlider?: boolean;
+    isService?: boolean;
+    href?: string;
 }
 
 const {
     bgImage = "https://w0.peakpx.com/wallpaper/1008/819/HD-wallpaper-future-building-concept-building-concept-future-abstract.jpg",
-    iconClass = "fa-solid fa-house",
+    iconClass = "",
     title = "Adaptabilidad",
-    content = "Aprender a vivir en constante cambio. Evolucionar y tropicalizarse.",
+    content = "",
+    isSlider = false,
+    isService = false,
+    href = "#",
 } = Astro.props as Props;
+
+const cardClasses = `w-full ${isSlider ? 'lg:w-1/3 flex-shrink-0' : ''} bg-gray-200 p-10 rounded-xl flex flex-col items-center justify-center font-[700] h-[500px] bg-pink-200 text-2xl relative overflow-hidden text-white`
+const hasIcon = Boolean(iconClass.trim());
 ---
 
 <script>
@@ -56,20 +67,32 @@ const {
 </script>
 
 <div
-    class="w-full lg:w-1/3 flex-shrink-0 bg-gray-200 p-10 rounded-xl flex flex-col items-center justify-center font-[700] h-[500px] bg-pink-200 text-2xl relative overflow-hidden text-white"
+    class={cardClasses}
 >
     <div class="absolute top-0 left-0 w-full h-full">
         <div class="relative bg-black/50 h-full z-1"></div>
-        <img
-            class="absolute top-0 w-full h-full object-cover"
-            src={bgImage}
-            alt=""
-        />
+        <Image
+                src={bgImage}
+                class="absolute top-0 w-full h-full object-cover"
+                alt="imagen"
+                width="50"
+                height="50"
+                decoding="async"
+                loading="lazy"
+        ></Image>
     </div>
-    <div class="bg-white p-2 rounded-full text-2xl z-1 text-black">
-        <Icon name={iconClass} />
-    </div>
+    {hasIcon && (
+            <div class="bg-white p-2 rounded-full text-2xl z-1 text-black">
+                <Icon name={iconClass}></Icon>
+            </div>
+    )}
     <span class="z-1">{title}</span>
     <p class="text-sm text-center z-1 font-[600]">{content}</p>
+    {isService && (
+            <ButtonDefault
+                    extraClasses="z-2"
+                    href= `/servicios/${href}`
+            />
+    )}
 </div>
 
