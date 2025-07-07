@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Menu from "../../components/ui/Menu.astro";
+import Footer from "../../components/Footer.astro";
+import FormServices from "../../components/ui/components/servicios/FormServices.vue";
+import SectionServices from "../../components/ui/layouts/SectionServices.astro";
+import ServiceCard from "../../components/ui/components/ServiceCard.astro";
+---
+
+<Layout>
+    <Header extraClasses="container mx-auto" />
+    <Menu />
+    <SectionServices
+        title='Creación de sitios web para tu <br> <span class="text-yellow-500">negocio</span>'
+        description= "Crear un sitio web para tu negocio mejora la visibilidad, profesionalismo y alcance. Permite mostrar productos o servicios, captar clientes potenciales, generar confianza y ofrecer atención continua. Es una herramienta esencial para crecer en el entorno digital actual"
+        bgImage="https://storage.googleapis.com/cazadores-bucket/assets/servicios/website-cazadores-section.png"
+        name="web"
+    >
+        <h3 class="mb-2 lg:mb-0 lg:text-start text-3xl">¿Que te ofrecemos?</h3>
+        <div class="grid grid-cols-1 xl:grid-cols-4 my-5 gap-5 mx-5 xl:mx-0">
+            <ServiceCard
+                iconClass="mdi:account-supervisor-circle"
+                title="Renovación tecnologica"
+                description="Modernizar el sitio mejora diseño, velocidad y seguridad, optimizando experiencia, posicionamiento y fortaleciendo la imagen y competitividad empresarial."
+                defaultClasses="bg-yellow-300 h-[400px]"
+            />
+            <ServiceCard
+                    iconClass="mdi:text-box-search"
+                    title="SEO Friendly"
+                    description="Un sitio SEO Friendly mejora la visibilidad en buscadores, atrae tráfico orgánico, optimiza contenido y estructura para mayor posicionamiento."
+                    defaultClasses="bg-yellow-300 h-[400px]"
+            />
+            <ServiceCard
+                    iconClass="mdi:design"
+                    title="Diseño personalizado"
+                    description="Adaptamos el sitio web a la identidad y necesidades del negocio, mejorando la experiencia del usuario y diferenciación."
+                    defaultClasses="bg-yellow-300 h-[400px]"
+            />
+            <ServiceCard
+                    iconClass="mdi:account-file-text-outline"
+                    title="Copywriting"
+                    description="Creamos textos persuasivos y claros que comunican el valor de la marca, guían al usuario y aumentan conversiones."
+                    defaultClasses="bg-yellow-300 h-[400px]"
+            />
+        </div>
+        <FormServices
+            client:load
+        />
+    </SectionServices>
+    <Footer />
+</Layout>

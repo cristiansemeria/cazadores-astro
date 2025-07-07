@@ -1,0 +1,44 @@
+---
+interface Props {
+    bgImage?: string,
+    title?: string,
+    description?: string,
+    name?: string
+}
+
+const {
+    bgImage = '',
+    title = '',
+    description= '',
+    name = ''
+} = Astro.props as Props;
+
+import SectionContainer from "./SectionContainer.astro";
+import SectionFull from "./SectionFull.astro";
+import { Image } from 'astro:assets';
+---
+
+<SectionFull>
+    <SectionContainer>
+        <div class="flex flex-col items-start gap-5 text-start mx-5 xl:mx-0">
+            <span class="bg-yellow-200 px-4 py-2 text-neutral-700 rounded-xl">Recomendado</span>
+            <h2 class="text-5xl font-normal" set:html={title} ></h2>
+            <p class="xl:w-1/2 font-normal">{description}</p>
+        </div>
+    </SectionContainer>
+    <div class="mx-5">
+        <Image
+                src={bgImage}
+                class="w-full h-[500px] object-cover rounded-xl"
+                alt="imagen"
+                width="50"
+                height="50"
+                decoding="async"
+                loading="lazy"
+                transition:name={name}
+        />
+    </div>
+    <SectionContainer>
+        <slot />
+    </SectionContainer>
+</SectionFull>
