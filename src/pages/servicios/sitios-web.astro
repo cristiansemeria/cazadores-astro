@@ -4,8 +4,15 @@ import Header from "../../components/Header.astro";
 import Menu from "../../components/ui/Menu.astro";
 import Footer from "../../components/Footer.astro";
 import FormServices from "../../components/ui/components/servicios/FormServices.vue";
+import ComponentVue from "../../components/ui/components/ComponentVue.vue";
 import SectionServices from "../../components/ui/layouts/SectionServices.astro";
 import ServiceCard from "../../components/ui/components/ServiceCard.astro";
+
+import LightBoxGallery from "../../components/ui/components/servicios/LightBoxGallery.vue";
+const myImages = [
+    { src: 'https://storage.googleapis.com/cazadores-bucket/assets/servicios/website-cazadores-section.png', alt: 'Imagen 1' },
+    { src: 'https://storage.googleapis.com/cazadores-bucket/assets/servicios/website-cazadores-section.png', alt: 'Imagen 2' },
+];
 ---
 
 <Layout>
@@ -44,9 +51,19 @@ import ServiceCard from "../../components/ui/components/ServiceCard.astro";
                     defaultClasses="bg-yellow-300 h-[400px]"
             />
         </div>
-        <FormServices
-            client:load
-        />
+        <!--<FormServices-->
+        <!--    client:load-->
+        <!--/>-->
+        <!--<ComponentVue-->
+        <!--    client:load-->
+        <!--/>-->
+        <section class="my-2 xl:my-5">
+            <h3 class="lg:text-start mb-2 text-3xl">Nuestro portafolio</h3>
+            <LightBoxGallery
+                    client:load
+                    images={myImages}
+            />
+        </section>
     </SectionServices>
     <Footer />
 </Layout>
