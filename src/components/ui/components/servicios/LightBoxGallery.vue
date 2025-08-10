@@ -32,7 +32,7 @@ function closeModal() {
       <img
           :src="img.src"
           :alt="img.alt"
-          class="cursor-pointer object-cover rounded-xl w-full h-full"
+          class="cursor-pointer object-cover object-top rounded-xl w-full h-full"
           @click="openModal(img.src)"
       />
     </div>
@@ -41,12 +41,13 @@ function closeModal() {
   <!-- Modal -->
   <div
       v-if="isModalOpen"
+      v-for="(img) in images"
       class="fixed inset-0 bg-black/90 flex items-center justify-center overflow-hidden z-5"
       @click="closeModal"
   >
     <img
         :src="modalSrc"
-        alt="Imagen ampliada"
+        :alt="img.alt"
         class="max-w-full max-h-full px-5 xl:px-0"
     />
   </div>

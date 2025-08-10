@@ -10,8 +10,8 @@ import ServiceCard from "../../components/ui/components/ServiceCard.astro";
 
 import LightBoxGallery from "../../components/ui/components/servicios/LightBoxGallery.vue";
 const myImages = [
-    { src: 'https://storage.googleapis.com/cazadores-bucket/assets/servicios/website-cazadores-section.png', alt: 'Imagen 1' },
-    { src: 'https://storage.googleapis.com/cazadores-bucket/assets/servicios/website-cazadores-section.png', alt: 'Imagen 2' },
+    { src: 'https://storage.googleapis.com/cazadores-bucket/assets/servicios/portafolio/webpage.png', alt: 'Grupo HEGA' },
+    { src: 'https://storage.googleapis.com/cazadores-bucket/assets/servicios/portafolio/webpage-2.png', alt: 'Macario Go Cabañas' },
 ];
 ---
 
@@ -58,12 +58,13 @@ const myImages = [
         <!--    client:load-->
         <!--/>-->
         <section class="my-2 xl:my-5">
-            <h3 class="lg:text-start mb-2 text-3xl">Nuestro portafolio</h3>
+            <h3 class="lg:text-start mb-5 text-3xl">Nuestro portafolio</h3>
             <LightBoxGallery
                     client:load
                     images={myImages}
             />
         </section>
+        
     </SectionServices>
     <Footer />
 </Layout>
